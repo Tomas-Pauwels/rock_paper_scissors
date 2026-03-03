@@ -1,13 +1,20 @@
 
 let humanScore = 0;
 let computerScore = 0;
+playGame()
+
+function playGame() {
+    for (let round = 1; round<6; round++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log("computer chose :" + computerSelection);
+        
+        playRound(humanSelection,computerSelection);
+        alert("the human chose " + humanSelection + " and the computer chose " + computerSelection + "\nRound" + round + " the human score is " + humanScore + " and the computer score is " + computerScore);
+    }
+}
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log("computer chose :" + computerSelection);
-playRound(humanSelection,computerSelection);
-console.log("the human score is " + humanScore + "the computer score is " + computerScore);
 
 function  getComputerChoice() {
     selector = Math.random()*3;
@@ -23,8 +30,8 @@ function  getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // let human_choice = prompt("Choose either 'rock', 'paper' or scissors.");
-    let human_choice = "scissors"
+    let human_choice = prompt("Choose either 'rock', 'paper' or scissors.");
+    // let human_choice = "rock"
     // console.log(human_choice);
     return human_choice;
 }
@@ -46,7 +53,7 @@ function playRound(humanChoice,computerChoice) {
         if (computerChoice === "paper"){
             console.log("You lose, paper beats rock");
             computerScore = ++computerScore;
-        } else if (computerScore === "rock") {
+        } else if (computerChoice === "rock") {
             console.log("It's a draw, you both chose rock");
         } else {
             console.log("You win! rock beats scissors");
