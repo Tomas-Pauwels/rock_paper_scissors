@@ -9,8 +9,16 @@ function playGame() {
         const computerSelection = getComputerChoice();
         console.log("computer chose :" + computerSelection);
         
-        playRound(humanSelection,computerSelection);
-        alert("the human chose " + humanSelection + " and the computer chose " + computerSelection + "\nRound" + round + " the human score is " + humanScore + " and the computer score is " + computerScore);
+        message = playRound(humanSelection,computerSelection);
+        alert(message+ "\nRound " + round + ": the human score is " + humanScore + " and the computer score is " + computerScore);
+    }
+
+    if (humanScore>computerScore){
+        alert("YOU WIN!")
+    } else if (humanScore === computerScore){
+        alert("It's a tie.");
+    } else {
+        alert("You lose...")
     }
 }
 
@@ -41,33 +49,33 @@ function playRound(humanChoice,computerChoice) {
 
     if (humanChoice === "scissors"){
         if (computerChoice === "rock") {
-            console.log("You lose, rock beats scissors");
             computerScore = ++computerScore;
+            return message = "You lose, rock beats scissors";
         } else if (computerChoice === "scissors") {
-            console.log("It's a draw, you both chose scissors");
+            return message = "It's a draw, you both chose scissors";
         } else {
-            console.log("You win! scissors beat paper");
             humanScore = ++humanScore;
+            return message = "You win! scissors beat paper"; 
         }
     } else if (humanChoice === "rock"){
         if (computerChoice === "paper"){
-            console.log("You lose, paper beats rock");
             computerScore = ++computerScore;
+            return message = "You lose, paper beats rock";
         } else if (computerChoice === "rock") {
-            console.log("It's a draw, you both chose rock");
+            return message = "It's a draw, you both chose rock";
         } else {
-            console.log("You win! rock beats scissors");
             humanScore = ++humanScore;
+            return message = "You win! rock beats scissors";
         }
     } else { //paper
         if (computerChoice === "scissors") {
-             console.log("You lose, scissors beats paper");
             computerScore = ++computerScore;
+            return message = "You lose, scissors beats paper";   
         } else if (computerChoice === "paper") {
-            console.log("It's a draw, you both chose paper");
+            return message = "It's a draw, you both chose paper";
         } else {
-            console.log("You win! paper beats rock");
             humanScore = ++humanScore;
+            return message = "You win! paper beats rock";
         }
     }
 }
