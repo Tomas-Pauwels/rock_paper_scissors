@@ -1,5 +1,5 @@
 
-getComputerChoice();
+getHumanChoice();
 
 function  getComputerChoice() {
     selector = Math.random()*3;
@@ -10,6 +10,12 @@ function  getComputerChoice() {
     } else {
         computer_choice = "scissors"
     }
-    console.log(computer_choice);
+    // console.log(computer_choice);
     return computer_choice;
+}
+
+function getHumanChoice() {
+    let human_choice = prompt("Choose either 'rock', 'paper' or scissors.");
+    console.log(human_choice);
+    return human_choice;
 }
