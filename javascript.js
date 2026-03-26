@@ -3,17 +3,40 @@ let humanScore = 0;
 let computerScore = 0;
 // playGame()
 
+let current = document.querySelector(".current");
 let rockButton = document.querySelector("#roc");
 let paperButton = document.querySelector("#paper");
 let scissorButton = document.querySelector("#scissors");
 
+let currentMessage = document.createElement("div");
+current.appendChild(currentMessage);
+
+let player = document.querySelector(".player");
+let computer = document.querySelector(".computer");
+
+let currentHumanScore = document.createElement("span");
+currentHumanScore.textContent = String(humanScore);
+player.appendChild(currentHumanScore);
+
+let currentComputerScore = document.createElement("span");
+currentComputerScore.textContent = String(computerScore);
+computer.appendChild(currentComputerScore);
+
+
 rockButton.addEventListener("click",(event) => {
     event.preventDefault();
-
     computerSelection = getComputerChoice();
-    message = playRound("rock",computerSelection);
-    console.log(message);
-    alert(message);
+    message = playRound("rock",computerSelection)
+    
+
+    currentMessage.textContent = message;
+    current.replaceChild(currentMessage,currentMessage);
+    currentHumanScore.textContent = String(humanScore);
+    player.replaceChild(currentHumanScore,currentHumanScore);
+    currentComputerScore.textContent = String(computerScore);
+    computer.replaceChild(currentComputerScore,currentComputerScore);
+
+    // alert(message);
 });
 
 
@@ -22,8 +45,13 @@ paperButton.addEventListener("click",(event) => {
 
     computerSelection = getComputerChoice();
     message = playRound("paper",computerSelection);
-    console.log(message);
-    alert(message);
+  
+    currentMessage.textContent = message;
+    current.replaceChild(currentMessage,currentMessage);
+    currentHumanScore.textContent = String(humanScore);
+    player.replaceChild(currentHumanScore,currentHumanScore);
+    currentComputerScore.textContent = String(computerScore);
+    computer.replaceChild(currentComputerScore,currentComputerScore);
 });
 
 scissorButton.addEventListener("click",(event) => {
@@ -31,10 +59,14 @@ scissorButton.addEventListener("click",(event) => {
 
     computerSelection = getComputerChoice();
     message = playRound("scissors",computerSelection);
-    console.log(message);
-    alert(message);
+ 
+    currentMessage.textContent = message;
+    current.replaceChild(currentMessage,currentMessage);
+    currentHumanScore.textContent = String(humanScore);
+    player.replaceChild(currentHumanScore,currentHumanScore);
+    currentComputerScore.textContent = String(computerScore);
+    computer.replaceChild(currentComputerScore,currentComputerScore);
 });
-
 
 
 
