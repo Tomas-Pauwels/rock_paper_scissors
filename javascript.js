@@ -3,26 +3,59 @@ let humanScore = 0;
 let computerScore = 0;
 // playGame()
 
+let rockButton = document.querySelector("#roc");
+let paperButton = document.querySelector("#paper");
+let scissorButton = document.querySelector("#scissors");
+
+rockButton.addEventListener("click",(event) => {
+    event.preventDefault();
+
+    computerSelection = getComputerChoice();
+    message = playRound("rock",computerSelection);
+    console.log(message);
+    alert(message);
+});
 
 
-function playGame() {
-    for (let round = 1; round<6; round++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log("computer chose :" + computerSelection);
+paperButton.addEventListener("click",(event) => {
+    event.preventDefault();
+
+    computerSelection = getComputerChoice();
+    message = playRound("paper",computerSelection);
+    console.log(message);
+    alert(message);
+});
+
+scissorButton.addEventListener("click",(event) => {
+    event.preventDefault();
+
+    computerSelection = getComputerChoice();
+    message = playRound("scissors",computerSelection);
+    console.log(message);
+    alert(message);
+});
+
+
+
+
+// function playGame() {
+//     for (let round = 1; round<6; round++){
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice();
+//         console.log("computer chose :" + computerSelection);
         
-        message = playRound(humanSelection,computerSelection);
-        alert(message+ "\nRound " + round + ": the human score is " + humanScore + " and the computer score is " + computerScore);
-    }
+//         message = playRound(humanSelection,computerSelection);
+//         alert(message+ "\nRound " + round + ": the human score is " + humanScore + " and the computer score is " + computerScore);
+//     }
 
-    if (humanScore>computerScore){
-        alert("YOU WIN!")
-    } else if (humanScore === computerScore){
-        alert("It's a tie.");
-    } else {
-        alert("You lose...")
-    }
-}
+//     if (humanScore>computerScore){
+//         alert("YOU WIN!")
+//     } else if (humanScore === computerScore){
+//         alert("It's a tie.");
+//     } else {
+//         alert("You lose...")
+//     }
+// }
 
 
 
