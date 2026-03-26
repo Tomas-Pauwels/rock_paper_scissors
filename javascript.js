@@ -1,7 +1,9 @@
 
 let humanScore = 0;
 let computerScore = 0;
-playGame()
+// playGame()
+
+
 
 function playGame() {
     for (let round = 1; round<6; round++){
